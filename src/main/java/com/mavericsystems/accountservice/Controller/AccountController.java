@@ -60,8 +60,8 @@ public class AccountController {
     public ResponseEntity<AccountDto> getAccountDetails(@PathVariable String customerId , @PathVariable String accountId , @RequestHeader(value = "userId") String userId){
         if(customerId.equals(userId)){
             AccountDto accountDtoResponse = accountService.getAccountDetailsById(customerId , accountId);
-           // ResponseEntity<Balance> balanceDto = balanceServiceConsumer.getBalanceAccountDetails(accountId , userId);
-            //accountDtoResponse.setBalance(balanceDto.getBody());
+           ResponseEntity<Balance> balanceDto = balanceServiceConsumer.getBalanceAccountDetails(accountId , userId);
+            accountDtoResponse.setBalance(balanceDto.getBody());
             return new ResponseEntity<>(accountDtoResponse , HttpStatus.OK);
         }else{
             throw new CustomerIdMissmatch(CUSTOMER_ID_ERROR);

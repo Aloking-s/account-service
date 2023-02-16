@@ -5,6 +5,8 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 
@@ -17,8 +19,14 @@ import java.time.LocalDateTime;
 public class Accounts {
 @Id
    private String acctId;
+
+    @NotBlank(message = "Customer Id is mandatory")
     private String customerId;
+
+    @NotNull(message = "Type is mandatory - 'SAVINGS' or 'CURRENT'")
     private Type type;
+
+    private String Balance;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 

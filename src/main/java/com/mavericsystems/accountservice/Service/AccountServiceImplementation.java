@@ -10,7 +10,6 @@ import com.mavericsystems.accountservice.Mapper.AccountMapper;
 import com.mavericsystems.accountservice.Dto.AccountDto;
 import com.mavericsystems.accountservice.exception.AccountNotFoundException;
 import com.mavericsystems.accountservice.Enums.Type;
-import com.mavericsystems.accountservice.constants.Constants.*;
 
 import java.util.ArrayList;
 import java.util.List;
